@@ -1,0 +1,8 @@
+# Parse line by line for each data file
+d = {}
+for fn in filenames:
+    with open(fn, 'r') as infile:
+        for line in infile:
+            acc, l = parse_line(line)
+            d[acc] = d.get(acc, []) + l  # concatenate list of values
+return d
